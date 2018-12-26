@@ -1,8 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine;
-using System;
 
 public class UIManager : MonoBehaviour, IUIManager {
 
@@ -21,7 +18,6 @@ public class UIManager : MonoBehaviour, IUIManager {
     private Text p2ScoreText;
     [SerializeField]
     private Text bigText;
-
 
     private bool menuDisplayed;
 
@@ -76,15 +72,13 @@ public class UIManager : MonoBehaviour, IUIManager {
     }
 
     private void Update() {
-        if (Input.GetKeyUp(settings.pauseKey)) {
-            if (manager.playerGameOn) {
-                if (menuDisplayed) {
-                    manager.SetPaused(false);
-                    HideMenu();
-                } else {
-                    manager.SetPaused(true);
-                    ShowMenu();
-                }
+        if (Input.GetKeyUp(settings.pauseKey) && manager.playerGameOn) {
+            if (menuDisplayed) {
+                manager.SetPaused(false);
+                HideMenu();
+            } else {
+                manager.SetPaused(true);
+                ShowMenu();
             }
         }
     }

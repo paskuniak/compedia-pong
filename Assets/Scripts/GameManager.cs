@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(IGameSaver))]
 public class GameManager : MonoBehaviour, IGameStateManager, IGameScoreManager {
@@ -12,7 +9,7 @@ public class GameManager : MonoBehaviour, IGameStateManager, IGameScoreManager {
     
     [Header("Game Objects")]
     [SerializeField]
-    private GameObject uiObject;
+    private GameObject uiGameObject;
     [SerializeField]
     private GameObject p1Paddle;
     [SerializeField]
@@ -31,7 +28,7 @@ public class GameManager : MonoBehaviour, IGameStateManager, IGameScoreManager {
     void Start() {
 
         saver = GetComponent<IGameSaver>();
-        uiManager = uiObject.GetComponent<IUIManager>();
+        uiManager = uiGameObject.GetComponent<IUIManager>();
 
         player2Human = false;
 
@@ -46,12 +43,13 @@ public class GameManager : MonoBehaviour, IGameStateManager, IGameScoreManager {
 
     }
 
-    public void StartGame(bool p1Human, bool p2Human, int p1points = 0, int p2points = 0) {
+    // Start a new OR LOADED game
+    public void StartGame(bool p1Human, bool p2Human, int p1Points = 0, int p2Points = 0) {
 
         // Init player data
         playerGameOn = p1Human;
-        playerPoints[0] = p1points;
-        playerPoints[1] = p2points;
+        playerPoints[0] = p1Points;
+        playerPoints[1] = p2Points;
         UpdateUI();
 
         // Init paddles
@@ -127,7 +125,6 @@ public class GameManager : MonoBehaviour, IGameStateManager, IGameScoreManager {
         StartGame(false, false);
     }
 
-    #region Serialization
     public void LoadGame() {
         SaveData data;
         if (saver.LoadGame(out data)) {
@@ -144,7 +141,6 @@ public class GameManager : MonoBehaviour, IGameStateManager, IGameScoreManager {
         data.player2Points = playerPoints[1];
         data.player2Human = player2Human;
         saver.SaveGame(data);
-        //ball.StartNewPoint(true);
     }
 
     public bool HasSavedGame() {
@@ -154,5 +150,4 @@ public class GameManager : MonoBehaviour, IGameStateManager, IGameScoreManager {
     public void SetPaused(bool paused) {
         Time.timeScale = paused ? 0 : 1;
     }
-    #endregion
 }

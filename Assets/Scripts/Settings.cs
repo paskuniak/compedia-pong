@@ -12,8 +12,8 @@ public class Settings : ScriptableObject {
     public float paddleSpeed;
 
     [Header("Ball setting")]
-    public float minBallSpeed;
-    public float maxBallSpeed;
+    public float minBallSpeed;  // per axis
+    public float maxBallSpeed;  // per axis
     public float updateBallSpeedInterval;
     public float updateBallSpeedFactor;
 

@@ -968,7 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settings: {fileID: 11400000, guid: 0068c56aece2cb444ab47b6e8a9f1f9f, type: 2}
-  uiObject: {fileID: 1453427940}
+  uiGameObject: {fileID: 1453427940}
   p1Paddle: {fileID: 1121641749}
   p2Paddle: {fileID: 1009676659}
   ball: {fileID: 1033363525}
