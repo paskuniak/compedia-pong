@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b8b9fbc61d6d8043935b098dbe90815, type: 3}
+  m_Name: Settings
+  m_EditorClassIdentifier: 
+  paddleMaxPositionY: 3
+  paddleMinPositionY: -3
+  paddlePositionX: 9
+  paddleSpeed: 10
+  minBallSpeed: 2
+  maxBallSpeed: 6
+  updateBallSpeedInterval: 1
+  updateBallSpeedFactor: 1.05
+  pointsPerGoal: 1
+  pointsToWin: 3
+  messageDisplayTime: 2
+  pauseKey: 27
+  player1UpKey: 273
+  player1DownKey: 274
+  player2UpKey: 119
+  player2DownKey: 115
