@@ -1,1 +1,1 @@
-# compedia-pong
+# pong
